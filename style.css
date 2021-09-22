@@ -5,20 +5,31 @@
 }
 
 img {
+    object-fit: cover; /* this is neccesary to prevent the image from being stretched*/
     width: 100%;
-    border-radius: 10px;
+    border-radius: 5px; 
 }
 
 body {
-    display: grid;
+    display: flex; /* flex class is what am more familiar with hence the change*/
     min-height: 100vh;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+}
+
+.main-container {
+  overflow: hidden;
+  box-shadow: 4px 3px 10px rgba(0, 0, 0, 0.3); /**/
+  cursor: pointer;
 }
 
 .container {
-    position: relative;
+    display: flex;
+    height: 500px;
     width: 500px;
+    transition: 2s ease-in-out; /*set the image to scroll slower instead of just kutchiyose no jutsu.... also an advantage of loading all images at once*/
+    transform: translate(0); /*set the initial value of its x position which will be later changed in  app.js in response to events*/
 }
 
 .middle {

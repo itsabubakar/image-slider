@@ -1,44 +1,14 @@
-const image = document.querySelector('#image');
+const container = document.getElementById("container")
+const imgs = container.children  // places all the images in an array object
 
-const img = [
-    {
-        id: 0,
-        src: './img/01.jpg'
-    },
-    {
-        id: 1,
-        src: './img/02.jpg'
-    },
-    {
-        id: 2,
-        src: './img/03.jpg'
-    },
-    {
-        id: 3,
-        src: './img/04.jpg'
-    },
-    {
-        id: 4,
-        src: './img/05.jpg'
-    },
-    {
-        id: 5,
-        src: './img/06.jpg'
-    }
-]
+let i = 0
 
-let currentImage = 0;
-
-image.addEventListener('click', (e)=> {
-    // console.log('foo');
-    // console.log(e);
-    currentImage++;
-    if(currentImage > img.length - 1) {
-        currentImage = 0;
-        console.log(img[currentImage].src);
-        image.src = img[currentImage].src;
-    } else {
-        image.src = img[currentImage].src;
+container.addEventListener("click", () => {
+    i++;
+    container.style.transform = 'translateX(' + -i * 500 + 'px)' // this moves the container by the width of the image 
+    if (i > imgs.length - 1) {
+        container.style.transform = 'translateX(0px)' // returns the container to its original position
+        i = 0
     }
 })
 
